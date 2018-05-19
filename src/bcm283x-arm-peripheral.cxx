@@ -15,11 +15,6 @@ gpio_t::gpio_t() : _map_fd(0), _pmap(nullptr)
     _map_memory_device();
 }
 //---------------------------------------------------------
-gpio_t::pin_t gpio_t::pin(const uint32_t n)
-{
-    gpio_t::pin_t res(_pmap, n);
-    return res;
-}
 gpio_t::~gpio_t()
 {
     if(_pmap != nullptr)
@@ -60,5 +55,12 @@ void gpio_t::_map_memory_device()
     }
 }
 //---------------------------------------------------------
+gpio_t::pin_t gpio_t::pin(const uint32_t n)
+{
+    gpio_t::pin_t res(_pmap, n);
+    return res;
+}
+//---------------------------------------------------------
 } // namespace bcm283x_arm_peripheral
 //---------------------------------------------------------
+
