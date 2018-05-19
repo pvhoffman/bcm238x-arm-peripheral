@@ -52,7 +52,7 @@ Raspberry Pi cross compiler toolchain
 pvhoffman@host:~$ git clone https://github.com/raspberrypi/tools ~/tools
 ```
 
-### Installing
+### Building
 
 Add the cross compiler tool chain to the PATH of the host build machine. 
 ```
@@ -61,6 +61,15 @@ pvhoffman@host:~$ PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbi
 
 Edit the CMakeLists.txt changing the CMAKE_FIND_ROOT_PATH to the correct of the libc for the toolchain
 
+Execute cmake within the top level directory to generate the build system
+```
+pvhoffman@host:~$ cmake .
+```
+
+Execute make to build the library
+```
+pvhoffman@host:~$ make
+```
 ## Authors
 
 * **Paul Hoffman** - *Initial work* - [pvhoffman](https://github.com/pvhoffman)
