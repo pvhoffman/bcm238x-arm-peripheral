@@ -1,4 +1,4 @@
-# Project Title
+# bcm283x_arm_peripheral
 
 This is a C++ library with which to interface the BCM283X arm GPIO peripheral, e.g. Raspberry Pi, on Linux.
 
