@@ -9,13 +9,13 @@ namespace bcm283x_arm_peripheral
     class const_defs
     {
         public:
-            static constexpr uint32_t base_peripheral_physical_address = 0x20000000;
+            static constexpr uint32_t base_peripheral_physical_address = 0x3f000000;
             static constexpr uint32_t base_gpio_physical_address = base_peripheral_physical_address + 0x200000;
-            static constexpr const char* memory_device_path = "/dev/mem";
             static constexpr uint32_t memory_block_size = 4096;
             static constexpr uint32_t gpset0 = 7;
             static constexpr uint32_t gpclr0 = 10;
             static constexpr uint32_t gplev0 = 13;
+            static constexpr const char* memory_device_path = "/dev/mem";
             constexpr const_defs(){}
     };
 
