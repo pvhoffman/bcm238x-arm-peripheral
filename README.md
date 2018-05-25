@@ -20,15 +20,19 @@ int main()
         std::cout << "Setting pin 7 direction to default output." << std::endl;
         gpio.pin(4).setup();
 
+        //initially, by default, pin 7 will be high (3.3VDC)
+
         while(true)
         {
            // set pin 7 low
             std::cout << "Setting pin 7 low." << std::endl;
             gpio.pin(4).clear();
+            // pin 7 should now be 0VDC
             sleep(3);
             // set pin 7 high
             std::cout << "Setting pin 7 high." << std::endl;
             gpio.pin(4).set();
+            // pin 7 should now be 3.3 VDC
             sleep(3);
         }
     }
