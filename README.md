@@ -4,33 +4,37 @@ This is a C++ library with which to interface the BCM283X arm GPIO peripheral, e
 
 Example program to blink an LED, linking to this library:
 ```
-#include "bcm283x-arm-peripheral.h"
+#include <iostream>
+#include <stdexcept>
+
+#include <bcm283x-arm-peripheral.h>
+
 int main()
 {
     using namespace bcm283x_arm_peripheral;
+
     try
     {
-        // pin 7 corresponds to GPIO4
         gpio_t gpio;
 
-        // set pin 7 to output
-        gpio.pin(4).set_direction(gpio_t::pin_t::input);
-        gpio.pin(4).set_direction(gpio_t::pin_t::output);
+        std::cout << "Setting pin 7 direction to default output." << std::endl;
+        gpio.pin(4).setup();
 
         while(true)
         {
-            // set pin 7 high
-            gpio.pin(4).set();
-            sleep(3);
-
-            // set pin 7 low
+           // set pin 7 low
+            std::cout << "Setting pin 7 low." << std::endl;
             gpio.pin(4).clear();
+            sleep(3);
+            // set pin 7 high
+            std::cout << "Setting pin 7 high." << std::endl;
+            gpio.pin(4).set();
             sleep(3);
         }
     }
     catch(std::runtime_error& rex)
     {
-        std::cerr << "Exception: [" << rex.what() << "]" << std::endl;
+        std::cerr << "Runtime error: [" << rex.what() << "]" << std::endl;
     }
     return 0;
 }
